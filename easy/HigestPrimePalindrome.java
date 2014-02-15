@@ -1,34 +1,27 @@
 package easy;
-
-public class HigestPrimePalindrome {
-	int num=1000;
+//Sum of first 1000 primes
+public class SumPrime {
 public static void main(String[]args){
-	for(int i=1000;i>2;--i){
-		if(isPrime(i)&& isPalindrom(i)){
-				System.out.println("the greatest prime palindrom : "+i);
-				break;
-			}
-		}
+	int num = 10;
+	int sum=0;
+	int[] aprime=getPrime(num);
+	for (int i : aprime) {
+		sum = sum + i;
 	}
-
-private static boolean isPalindrom(int i) {
-	int rec=i;
-	int copy=0;
-	while(i>0){
-		int rec1=i%10;
-		copy=copy*10+rec1;
-		i=i/10;
-	}
-	return copy==rec;
+	System.out.println("the sum of the prime till 1000 is : "+ sum);
 }
-private static boolean isPrime(int i) {
-	boolean  prime = true;
-	for (int j = 2; j*j < i; j++) {
-		if(i%j==0){
-			prime=false;
-			break;
+
+private static int[] getPrime(int num) {
+	int[] anum= new int[num];
+	for (int i = 0; i < anum.length; i++) {
+		anum[i]=i;
+	}
+	anum[1]=0;
+	for (int i = 2; i < anum.length; i++) {
+		for (int j = 2; j <= (anum.length-1)/i; j++) {
+			anum[i*j]=0;
 		}
 	}
-	return prime;
+	return anum;
 }
 }
