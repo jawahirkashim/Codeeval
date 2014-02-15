@@ -15,11 +15,12 @@ public static void main(String[]args) throws IOException{
 	}
 	System.out.println("the num is armstrong: " + "sum: "+sum+"  "+(sum==Integer.parseInt(str)));
 }
-
+//helper method 
 private static String getInput(String string) throws IOException {
 	System.out.println(string);
 	InputStreamReader isr=new InputStreamReader(System.in);
 	BufferedReader br=new BufferedReader(isr);
 	return br.readLine();
+	
 }
 }
